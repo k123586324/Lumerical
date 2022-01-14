@@ -1,0 +1,51 @@
+x = matrix(30);
+#柱子
+x(1)=106;
+x(2)=106;
+x(3)=104;
+x(4)=100;
+x(5)=96;
+x(6)=88;
+x(7)=80;
+x(8)=66;
+x(9)=220;
+x(10)=214;
+x(11)=210;
+x(12)=204;
+x(13)=198;
+x(14)=192;
+x(15)=186;
+x(16)=180;
+x(17)=172;
+x(18)=164;
+x(19)=154;
+x(20)=144;
+x(21)=134;
+x(22)=120;
+x(23)=102;
+x(24)=228;
+x(25)=214;
+x(26)=200;
+x(27)=190;
+x(28)=178;
+x(29)=164;
+x(30)=150;
+#柱子結束
+#排列開始
+for (i=1:length(x)) {
+   switchtolayout;
+   addcircle;
+   set("name","MetaAtom_+"+num2str(i));
+   set("material","GaN(Alfie)");
+   set("radius",(x(i)/2)*10^-9);
+   set("x",(250e-9)*i);
+   set("z",0.3e-6);
+   set("z span",0.6e-6);
+   addcircle;
+   set("name","MetaAtom_-"+num2str(i));
+   set("material","GaN(Alfie)");
+   set("radius",(x(i)/2)*10^-9);
+   set("x",-(250e-9)*i);
+   set("z",0.3e-6);
+   set("z span",0.6e-6);
+}

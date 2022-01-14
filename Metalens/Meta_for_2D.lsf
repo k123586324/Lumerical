@@ -1,0 +1,85 @@
+x = matrix(31);
+#柱子
+x(1)=108;
+x(2)=106;
+x(3)=106;
+x(4)=104;
+x(5)=100;
+x(6)=96;
+x(7)=88;
+x(8)=80;
+x(9)=66;
+x(10)=220;
+x(11)=214;
+x(12)=210;
+x(13)=204;
+x(14)=198;
+x(15)=192;
+x(16)=186;
+x(17)=180;
+x(18)=172;
+x(19)=164;
+x(20)=154;
+x(21)=144;
+x(22)=134;
+x(23)=120;
+x(24)=102;
+x(25)=228;
+x(26)=214;
+x(27)=200;
+x(28)=190;
+x(29)=178;
+x(30)=164;
+x(31)=150;
+
+#柱子結束
+#週期(nm)
+pitch=250;
+#排列開始
+for (i=1:length(x)) {
+   for (j=1:length(x)) {
+      k=round(sqrt((pitch*(i-1))^2+(pitch*(j-1))^2)/pitch);
+      #print(num2str(i)+","+num2str(j)+","+num2str(k));
+      if((k <= 31)&(k>0)) {
+         print(num2str(i-1)+","+num2str(j-1)+","+num2str(k));
+         switchtolayout;
+         #第一象限
+         addcircle;
+         set("name","MetaAtom_+"+num2str(i-1)+"_+"+num2str(j-1));
+         set("material","GaN(Alfie)");
+         set("radius",(x(k)/2)*10^-9);
+         set("x",(pitch*10^-9)*(i-1));
+         set("y",(pitch*10^-9)*(j-1));
+         set("z",0.3e-6);
+         set("z span",0.6e-6);
+         #第二象限
+         addcircle;
+         set("name","MetaAtom_-"+num2str(i-1)+"_+"+num2str(j-1));
+         set("material","GaN(Alfie)");
+         set("radius",(x(k)/2)*10^-9);
+         set("x",-(pitch*10^-9)*(i-1));
+         set("y",(pitch*10^-9)*(j-1));
+         set("z",0.3e-6);
+         set("z span",0.6e-6);
+         #第三象限
+         addcircle;
+         set("name","MetaAtom_-"+num2str(i-1)+"_-"+num2str(j-1));
+         set("material","GaN(Alfie)");
+         set("radius",(x(k)/2)*10^-9);
+         set("x",-(pitch*10^-9)*(i-1));
+         set("y",-(pitch*10^-9)*(j-1));
+         set("z",0.3e-6);
+         set("z span",0.6e-6);
+         #第四象限
+         addcircle;
+         set("name","MetaAtom_+"+num2str(i-1)+"_-"+num2str(j-1));
+         set("material","GaN(Alfie)");
+         set("radius",(x(k)/2)*10^-9);
+         set("x",(pitch*10^-9)*(i-1));
+         set("y",-(pitch*10^-9)*(j-1));
+         set("z",0.3e-6);
+         set("z span",0.6e-6);
+      } 
+      
+   }
+}

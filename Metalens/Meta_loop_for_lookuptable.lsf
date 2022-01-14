@@ -1,0 +1,15 @@
+for (i=1:91 ) {
+   switchtolayout;
+   select("MetaAtom");
+   Pillar_Radius=(0.025+(i-1)/1000)/1000000;
+   set("radius",Pillar_Radius);
+   unselectall;
+   run;
+   E=getresult("monitor_2","E");
+   Re_Ex=mean(real(E.Ex));
+   Im_Ex=mean(imag(E.Ex));
+   Phase_Ex=(mean(angle(E.Ex))*180/pi);
+   write("testfile.txt",num2str(Pillar_Radius)+","+num2str(Re_Ex)+","+num2str(Im_Ex)+","+num2str(Phase_Ex));
+   print(num2str(Pillar_Radius)+","+num2str(Re_Ex)+","+num2str(Im_Ex)+","+num2str(Phase_Ex));
+}
+#print(mean(angle(E.Ex))*180/pi)
